@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>INFO3180 Lab 1</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <script src="{{ url_for('static',filename='app.js') }}"></script>
+
+</head>
+
+
+
+<body>
+<main> 
+        {% extends 'base.html' %}
+        {% block main %}
+
+        <h1> Contact Form</h1>
+        <hr>
+        <h4>Fill in this form to contact the site owners.</h4>
+        <br>
+
+        <form action="{{url_for('contact')}}" method="post" >
+            <div>
+                {{ form.csrf_token }}
+                {{ form.name.label }}
+                {{ form.name(size=45) }}
+
+                {{ form.E-mail.label }}
+                {{ form.E-mail(size=45) }}
+
+                {{ form.subject.label }}
+                {{ form.subject(size=70) }}
+
+                {{ form.message.label }}
+                {{ form.message(size=500) }}
+
+            <button type="submit">Send</button>
+           </form>
+        
+        
+        {% endblock %}
+</main> 
+
+    <p>Copyright &copy; 2022 Juddy-Shae Wallace.</p>
+</footer>
+</body>
+</html>
