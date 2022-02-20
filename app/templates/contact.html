@@ -1,19 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>INFO3180 Lab 1</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
-    <script src="{{ url_for('static',filename='app.js') }}"></script>
-
-</head>
-
-
-
-<body>
 <main> 
         {% extends 'base.html' %}
         {% block main %}
@@ -26,27 +10,23 @@
         <form action="{{url_for('contact')}}" method="POST" >
             
             <div>
+                <label for="">{{ myform.name.label }} <div id="required">(Required)</div></label> 
                 {{ myform.csrf_token }}
-                {{ form.name.label }}
-                {{ form.name(size=45) }}
+                
+                
+                {{ myform.name(size=45) }}
 
-                {{ form.E-mail.label }}
-                {{ form.E-mail(size=45) }}
+                {{ myform.email.label }}
+                {{ myform.email(size=35) }}
 
-                {{ form.subject.label }}
-                {{ form.subject(size=70) }}
+                {{ myform.subject.label }}
+                {{ myform.subject(size=70) }}
 
-                {{ form.message.label }}
-                {{ form.message(size=500) }}
+                {{ myform.message.label }}
+                {{ myform.message(size=500) }}
 
             <button type="submit">Send</button>
            </form>
         
         
         {% endblock %}
-</main> 
-
-    <p>Copyright &copy; 2022 Juddy-Shae Wallace.</p>
-</footer>
-</body>
-</html>
