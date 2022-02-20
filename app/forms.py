@@ -1,7 +1,8 @@
 from wsgiref.validate import validator
 from flask_wtf import FlaskForm
 from wtforms import StringField
-from wtforms import TextAreaField, SubmitField
+from wtforms import TextAreaField
+from wtforms import SubmitField
 from wtforms.validators import DataRequired, Email
 
 
