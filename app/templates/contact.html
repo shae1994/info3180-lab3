@@ -9,23 +9,31 @@
 
         <form action="{{url_for('contact')}}" method="POST" >
             
-            <div>
-                <label for="">{{ myform.name.label }} <div id="required">(Required)</div></label> 
-                {{ myform.csrf_token }}
+            <div class="form-label">{{ myform.name.label }}</div>
+            <h6>(Required)</h6> 
+                <p>Please enter your full name </p>
+                {{myform.name}}
+
                 
+                <div id="para"><label> {{ myform.email.label }}<h6>(Required)</h6></label></div>
+                <p>Please enter your email address </p>
+                {{myform.email}}
+
+               
+                <div id="para"><label> {{ myform.subject.label }}<h6>(Required)</h6></label></div>
+                <p>Please enter the subject for your message </p>
+                {{myform.subject}}
+
+               
                 
-                {{ myform.name(size=45) }}
+                <div id="para"><label> {{ myform.message.label }}<h6>(Required)</h6></label></div>
+                <p>Please enter the message you would like to send.</p>
+                {{myform.message}}
 
-                {{ myform.email.label }}
-                {{ myform.email(size=35) }}
-
-                {{ myform.subject.label }}
-                {{ myform.subject(size=70) }}
-
-                {{ myform.message.label }}
-                {{ myform.message(size=500) }}
+                
 
             <button type="submit">Send</button>
+            {{ myform.csrf_token }}
            </form>
         
         
