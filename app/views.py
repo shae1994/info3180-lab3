@@ -30,12 +30,18 @@ def about():
 def contact():
     myform = ContactForm()
     if request.method == 'POST':
+
         if myform.validate_on_submit():
             message= myform.message.data
             name=myform.name.data
             email= myform.email.data
             subject = myform.subject.data
-
+            msg = Message(subject, sender=(name, email),recipients=['6568941ce1f268'])
+            msg.body = message
+            mail.send(msg)
+            return redirect(url_for('home'), flash('Your email has been sent successfully.'))
+             
+        flash_errors(myform)
     return render_template('contact.html', myform = myform)
 
 
